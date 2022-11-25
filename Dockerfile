@@ -1,8 +1,8 @@
 FROM node:17.9.1
 
 # Install packages
-RUN apk update && apk add --update --no-cache \
-    git \
+RUN apt-get update && \
+    apt-get install -y \
     bash \
     curl \
     openssh \
