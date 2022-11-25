@@ -14,5 +14,6 @@ RUN apt-get update && \
 # Install AWSCLI
 RUN pip3 --no-cache-dir install --upgrade awscli
 
+RUN npm i python
 
 CMD ["/bin/bash"]
