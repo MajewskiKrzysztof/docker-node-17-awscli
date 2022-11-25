@@ -1,19 +1,15 @@
-FROM node:17.9.1
+FROM node:17
 
 # Install packages
 RUN apt-get update && \
     apt-get install -y \
-        python3 \
-        python3-pip \
-        python3-setuptools \
+        python \
+        python-dev \
+        python-pip \
+        python-setuptools \
         groff \
         less \
-    && pip3 install --upgrade pip \
+    && pip install --upgrade awscli \
     && apt-get clean
-
-# Install AWSCLI
-RUN pip3 --no-cache-dir install --upgrade awscli
-
-RUN npm i python
 
 CMD ["/bin/bash"]
