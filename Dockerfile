@@ -5,7 +5,6 @@ RUN apt-get update && \
     apt-get install -y \
     bash \
     curl \
-    openssh \
     python3 \
     py3-pip \
     py-cryptography \
