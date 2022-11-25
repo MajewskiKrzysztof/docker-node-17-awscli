@@ -1,4 +1,4 @@
-FROM node:17.9.1
+FROM node:17.9.1-alpine
 
 RUN apt-get update && \
     apt-get install -y \
