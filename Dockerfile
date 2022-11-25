@@ -1,4 +1,4 @@
-FROM node:17
+FROM node:17.9.1
 
 # Install packages
 RUN apt-get update && \
