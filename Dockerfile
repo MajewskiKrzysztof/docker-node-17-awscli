@@ -3,18 +3,16 @@ FROM node:17.9.1
 # Install packages
 RUN apt-get update && \
     apt-get install -y \
-    bash \
-    curl \
-    python3 \
-    py3-pip \
-    py-cryptography \
-    wget \
-    curl
-
-RUN apk --no-cache add --virtual builds-deps build-base python3
+        python3 \
+        python3-pip \
+        python3-setuptools \
+        groff \
+        less \
+    && pip3 install --upgrade pip \
+    && apt-get clean
 
 # Install AWSCLI
-RUN pip install --upgrade pip && \
-    pip install --upgrade awscli
+RUN pip3 --no-cache-dir install --upgrade awscli
+
 
 CMD ["/bin/bash"]
