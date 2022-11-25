@@ -1,14 +1,21 @@
-FROM node:17.9.1-alpine
+FROM node:17.9.1
 
-RUN apt-get update && \
-    apt-get install -y \
-        python \
-        python-dev \
-        python-pip \
-        python-setuptools \
-        groff \
-        less \
-    && pip install --upgrade awscli \
-    && apt-get clean
+# Install packages
+RUN apk update && apk add --update --no-cache \
+    git \
+    bash \
+    curl \
+    openssh \
+    python3 \
+    py3-pip \
+    py-cryptography \
+    wget \
+    curl
+
+RUN apk --no-cache add --virtual builds-deps build-base python3
+
+# Install AWSCLI
+RUN pip install --upgrade pip && \
+    pip install --upgrade awscli
 
 CMD ["/bin/bash"]
